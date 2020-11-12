@@ -36,10 +36,11 @@
   <a href="https://pandorafms.com/">
     <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" width="30%" height="30%">
   </a>
+  -->
   <a href="https://www.veeam.com/es/vm-backup-recovery-replication-software.html">
     <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="30%" height="30%">
   </a>
-  -->
+  
 
   <h3 align="center">Recogida de datos de Veeam Backup para su uso en PandoraFMS</h3>
 
@@ -177,6 +178,12 @@ Simplemente para recordar, [aqui](https://pandorafms.com/docs/index.php?title=Pa
 - *Alfanumérico asíncrono* (async_string): Para cadenas de texto de tipo asíncrono. La monitorización asíncrona depende de eventos o cambios que pueden ocurrir o no, por lo que este tipo de módulos nunca están en estado desconocido.
 - *Booleano asíncrono* (async_proc): Para valores booleanos de tipo asíncrono.
 - *Numérico asíncrono* (async_data): Para valores numéricos de tipo asíncrono.
+
+Todos los módulos están configurados para ejecutarse cada hora (a la hora y 45 minutos) con un timeout de 50 segundos para dar tiempo a powershell a hacer la consulta.
+```
+module_crontab 45 * * * *
+module_timeout 50
+```
 
 ¡OJO! Recordar cambiar el UUID de la tarea por uno de los obtenidos en las listas del apartado anterior.
 
@@ -343,13 +350,65 @@ module_end
 
 #### Modulo IsEnabled
 Preguntar si la tarea está activa o no, si no lo está no se ejecutará.
+Devuelve un *Booleano*
+
 Ejemplo de uso:
 ```
 module_begin
 module_name Veeam Backup - Job Copia_Ejemplo_1 - IsEnabled
-module_type generic_data
+module_type generic_proc
 module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 IsEnabled d9c799c4-2d33-2641-a2db-116aa917078c
 module_description Veeam Backup - Job Copia_Ejemplo_1 - IsEnabled de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo IsRunning
+Preguntar si la tarea está actualmente en marcha o no.
+Devuelve un *Booleano*
+
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - IsRunning
+module_type generic_proc
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 IsRunning d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - IsRunning de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo RunManually
+Preguntar si la tarea se ha ejecutado manualmente.
+Devuelve un *Entero*
+- 0 No
+- 1 Si
+
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - RunManually
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 RunManually d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - Se ha ejecutado la tarea manualmente?
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo TransferedSize
+Devuelve la cantidad de bytes transferidos en la última ejecución de la tarea.
+Devuelve un *Entero*
+
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - TransferedSize
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 TransferedSize d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - Valor en bytes transferido por la tarea
 module_crontab 45 * * * *
 module_timeout 50
 module_end
