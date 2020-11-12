@@ -18,20 +18,11 @@ $ID = [string]$args[1]
 #* Load Veeam snapin
 Add-PsSnapin -Name VeeamPSSnapIn -ErrorAction SilentlyContinue
 
-# Query VEEAM for Job
 
 # Open JSON object
 $output =  ""
 
-# ID de prueba
-# $ID = "f2f89dfb-c111-40a1-bc7f-8b7e9d7a72ff"
-# $query2 = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
-# $query3 = Get-VBRBackup | Where-Object {$_.Id -like "*$ID*"}
-#$query = Get-VBRBackupSession | Where {$_.jobId -eq $query2.Id.Guid} | Sort EndTimeUTC -Descending | Select -First 1
-# $query = Get-VBRBackupSession | Where {$_.jobId -eq "$ID"} | Sort EndTimeUTC -Descending | Select -First 1
 
-
-#$query2
 switch ($ITEM) {
     "JobName" {
 	  $query = Get-VBRBackupSession | Where {$_.jobId -eq "$ID"} | Sort EndTimeUTC -Descending | Select -First 1
