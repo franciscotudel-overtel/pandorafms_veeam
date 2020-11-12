@@ -30,7 +30,13 @@
 <br />
 <p align="center">
   <a href="https://www.overtel.com">
-    <img src="images/logo.png" alt="Logo" >
+    <img src="images/logo.png" alt="Logo Overtel" >
+  </a>
+  <a href="https://pandorafms.com/">
+    <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" >
+  </a>
+  <a href="https://www.veeam.com/es/vm-backup-recovery-replication-software.html">
+    <img src="images/veeam_green_logo.svg" alt="Logo Veeam" >
   </a>
 
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
