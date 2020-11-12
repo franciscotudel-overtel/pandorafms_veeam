@@ -39,10 +39,10 @@
     <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="30%" height="30%">
   </a>
 
-  <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
+  <h3 align="center">Recogida de datos de Veeam Backup para su uso en PandoraFMS</h3>
 
   <p align="center">
-    Modulos para leer el estado de tareas de Veeam Backup y ser usados como modulos en pandorafms
+    Grupo de scripts que nos permiten extraer datos de Veeam Backup y almacenarlos en PandoraFMS
     <br />
     <a href="https://github.com/franciscotudel-overtel/pandorafms_veeam/issues">Reportar un Bug</a>
     ·
@@ -60,6 +60,10 @@
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
 * [Ejemplos de Uso](#uso)
+  * [Listado de Tareas](#uso_1)
+  * [Parametros de una tarea especifica](#uso_2)
+  * [Lisado de Datastores](#uso_3)
+  * [Parametros de Datastores especifica](#uso_4)
 * [Contribuir](#contribuir)
 * [Licencia](#licencia)
 * [Contacto](#contacto)
@@ -112,7 +116,7 @@ d9c799c4-2d33-2641-a2db-116aa917078c
 module_begin
 module_name Veeam Backup - Job Copia_Ejemplo_1 - Resultado
 module_type generic_data_string
-module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 ListCSV
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 Result d9c799c4-2d33-2641-a2db-116aa917078c
 module_description Veeam Backup - Job Copia_Ejemplo_1 - Ultimo resultado de la ejecucion de la tarea
 module_crontab 45 * * * *
 module_timeout 50
@@ -123,9 +127,10 @@ module_end
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-#Modulo Jobs
+# Uso_1
 Lista todas las tareas programadas en Veeam Backup de la maquina local
 
+#Modulo Jobs
 ```
 module_begin
 module_name Veeam Backup - Jobs
@@ -136,7 +141,14 @@ module_crontab 45 * * * *
 module_timeout 50
 module_end
 ```
+# Uso_2
+Datos obtenidos de una tarea concreta
 
+# Uso_3
+Datastores
+
+# Uso_4
+Datos especificos por Datastore
 
 <!-- LICENCIA -->
 ## Licencia
@@ -169,7 +181,7 @@ Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https
 [issues-shield]: https://img.shields.io/github/issues/francisco-tudel-escalona-44076069/pandorafms_veeam.svg?style=flat-square
 [issues-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/issues
 [license-shield]: https://img.shields.io/github/license/francisco-tudel-escalona-44076069/pandorafms_veeam.svg?style=flat-square
-[license-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/blob/master/LICENSE.txt
+[license-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/francisco-tudel-escalona-44076069
 
