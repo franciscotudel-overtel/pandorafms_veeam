@@ -36,7 +36,7 @@
     <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" >
   </a>
   <a href="https://www.veeam.com/es/vm-backup-recovery-replication-software.html">
-    <img src="images/veeam_green_logo.svg" alt="Logo Veeam" >
+    <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="50%" height="50%">
   </a>
 
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
