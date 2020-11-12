@@ -29,6 +29,16 @@ switch ($ITEM) {
 	  $output = $output + $query.Info.JobName
 	  $query = ''
 	}
+	"Percent" {
+	  $query = Get-VBRBackupSession | Where {$_.jobId -eq "$ID"} | Sort EndTimeUTC -Descending | Select -First 1
+	  $output = $output + $query.SessionInfo.Progress.Percents
+	  $query = ''
+	}
+	"AvgSpeed" {
+	  $query = Get-VBRBackupSession | Where {$_.jobId -eq "$ID"} | Sort EndTimeUTC -Descending | Select -First 1
+	  $output = $output + $query.SessionInfo.Progress.AvgSpeed
+	  $query = ''
+	}
 	"IsEnabled" {
 	  $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
 	  $output = $output + [bool]$query.IsScheduleEnabled 
@@ -129,13 +139,30 @@ switch ($ITEM) {
 	$count = $query | Measure-Object
     $count = $count.count
 	$query = Get-VBRJob
-    foreach ($object in $query) {
-	  $Id = [string]$object.Id
-	  $Name = [string]$object.Name
-	  $Schedule = [int]$object.IsScheduleEnabled
-	  $output = $output + $Name + ";" + $Schedule + ";" + $Id + ";`r`n"
-      }
-	 $query = ''
+    foreach ($object in $query)
+	{
+		$Id = [string]$object.Id
+		$Name = [string]$object.Name
+		$Schedule = [int]$object.IsScheduleEnabled
+		$output = $output + $Name + ";" + $Schedule + ";" + $Id + ";`r`n"
+	}
+	$query = ''
+    }
+	"ListEnabledCSV" {
+	$count = $query | Measure-Object
+    $count = $count.count
+	$query = Get-VBRJob
+    foreach ($object in $query)
+	{
+		if ($object.IsScheduleEnabled -eq $true)
+		{
+			$Id = [string]$object.Id
+			$Name = [string]$object.Name
+			$Schedule = [int]$object.IsScheduleEnabled
+			$output = $output + $Name + ";" + $Schedule + ";" + $Id + ";`r`n"
+		}
+	}
+	$query = ''
     }
 }
 Write-Host $output

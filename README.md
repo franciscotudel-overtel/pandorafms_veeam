@@ -446,6 +446,22 @@ module_timeout 50
 module_end
 ```
 
+#### Modulo Percent
+Devuelve la cantidad de minutos desde la última ejecución de la tarea.<br>
+Devuelve un *Entero*
+
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - Percent
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 Percent d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - Tiempo en minutos transcurrido desde la última ejecución de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
 
 ## Uso_3
 Datastores

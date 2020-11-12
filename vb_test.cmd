@@ -1,15 +1,20 @@
 @echo off
-@rem Bck 16
-@set JOB=f2f89dfb-c111-40a1-bc7f-8b7e9d7a72ff
+@set JOB=f2f89dfb-c131-40a1-bc7f-8b7e9d7a72fa
 @echo Este Script se usa para recoger alguna o todas las consultas posibles de un solo trabajo de para ello, 
 @echo  primero recoge la lista de todas las tareas con su UID, de este resultado cogemos alguna de las UID 
 @echo  y la ponemos en la variable JOB de este script.
 @echo -Jobs-
 @echo.
-@rem %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_jobs.ps1
+@echo Lista Tareas
 @%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListCSV
+@echo Lista Tareas Enabled
+@%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListEnabledCSV
 @echo Tarea consultada: %JOB%
 @echo.
+@echo -Percent-
+@%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 Percent %JOB%
+@echo -AvgSpeed-
+@%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 AvgSpeed %JOB%
 @echo -JobName-
 @%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 JobName %JOB%
 @echo -RetainDays-
