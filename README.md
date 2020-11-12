@@ -30,7 +30,7 @@
 <br />
 <p align="center">
   <a href="https://www.overtel.com">
-    <img src="images/logo.png" alt="Logo" >
+    <img src="images/logo.jpg" alt="Logo" >
   </a>
 
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
@@ -47,19 +47,18 @@
 
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## Tabla de contenido
 
-* [About the Project](#about-the-project)
+* [Sobre el proyecto](#Sobre el proyecto)
   * [Built With](#built-with)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Roadmap](#roadmap)
+* [COMENZANDO](#COMENZANDO)
+  * [Prerequisitos](#Prerequisitos)
+  * [Instalacion](#Instalacion)
+* [Ejemplos de Uso](#uso)
 * [Contributing](#contributing)
-* [License](#license)
-* [Contact](#contact)
-* [Acknowledgements](#acknowledgements)
+* [LICENCIA](#licencia)
+* [Contacto](#contacto)
+* [AGRADECIMIENTO](#agradecimiento)
 * [ir aqui](#aqui)
 
 
@@ -101,7 +100,7 @@ d9c799c4-2d33-2641-a2db-116aa917078c
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+## Uso
 
 #Modulo Jobs
 Lista todas las tareas de la maquina local
@@ -117,39 +116,24 @@ module_timeout 50
 ```
 
 
-
-<!-- ROADMAP -->
-## Roadmap
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
-
-
-
-
-
-
-
-<!-- LICENSE -->
-## License
+<!-- LICENCIA -->
+## Licencia
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-<!-- CONTACT -->
-## Contact
+<!-- CONTACTO -->
+## Contacto
 
 Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https://github.com/franciscotudel-overtel/pandorafms_veeam)
 
 
 
-<!-- ACKNOWLEDGEMENTS -->
-## Acknowledgements
+<!-- AGRADECIMIENTO -->
+## Agradecimiento
 * [Jean-Jacques Martrès](https://github.com/jjmartres)
 
-
-## aqui
-Venir a este punto
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
