@@ -62,7 +62,7 @@
 
 
 <!-- Sobre el proyecto -->
-## Acerca
+## Acerca de
 
 *Pandora FMS* es un software de código abierto que sirve para monitorear (monitorizar) y medir todo tipo de elementos. Monitoriza sistemas, aplicaciones o dispositivos de red. Permite conocer el estado de cada elemento de un sistema a lo largo del tiempo ya que dispone de histórico de datos y eventos. Pandora FMS está orientado a grandes entornos, y permite gestionar con y sin agentes, varios miles de sistemas, por lo que se puede emplear en grandes clusters, centros de datos y redes de todo tipo.
 
@@ -83,11 +83,15 @@ En el servidor donde este instalado Veeam Backup, debemos tener instalado Powers
 
 1. Clonar el repositorio en la carpeta de scripts de pandorafms
 ```sh
+cd c:\
+cd pandorafms
+mkdir scripts
+cd scripts
 git clone https://github.com/franciscotudel-overtel/pandorafms_veeam
 ```
 2. Debemos hacernos con la lista de tareas programadas en veeam con el siguiente comando desde una consola de ms-dos. En el siguiente ejemplo se puede ver como obtener la lista de tareas y el identificador de cada una de ellas, necesario para las posteriores llamadas al script de las tareas.
 ```sh
-%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListCSV
+%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 ListCSV
 
 BCK_1;0;25fe1987-acc2-1c5a-be4a-00a629487561;
 BCK_2;0;d9c799c4-2d33-2641-a2db-116aa917078c;
@@ -97,8 +101,17 @@ BCK_2;0;d9c799c4-2d33-2641-a2db-116aa917078c;
 d9c799c4-2d33-2641-a2db-116aa917078c
 ```
 
-4. Comenzar a poner modulos al agente, por ejemplo el modulo que devuelve el ultimo resultado de la tarea
-
+4. Comenzar a poner modulos al agente, para ello podemos seguir el manual del fabricate [aqui](https://pandorafms.com/docs/index.php?title=Pandora:Documentation_es:Configuracion_Agentes) o editar directamente el fichero pandora_agent.conf que estará en la carpeta de instalación del agente. Por ejemplo el módulo que devuelve el ultimo resultado de la tarea *d9c799c4-2d33-2641-a2db-116aa917078c* se configuraría así
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - Resultado
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 ListCSV
+module_description Veeam Backup - Job Copia_Ejemplo_1 - Ultimo resultado de la ejecucion de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
 
 
 <!-- USAGE EXAMPLES -->
@@ -115,6 +128,7 @@ module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo 
 module_description Lista de Tareas
 module_crontab 45 * * * *
 module_timeout 50
+module_end
 ```
 
 
