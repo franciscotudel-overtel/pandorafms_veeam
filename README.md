@@ -174,8 +174,10 @@ Simplemente para recordar, [aqui](https://pandorafms.com/docs/index.php?title=Pa
 - *Booleano asíncrono* (async_proc): Para valores booleanos de tipo asíncrono.
 - *Numérico asíncrono* (async_data): Para valores numéricos de tipo asíncrono.
 
+¡OJO! Recordar cambiar el UUID de la tarea por uno de los obtenidos en las listas del apartado anterior.
+
 #### Modulo JobName
-Obtener el nombre de la tarea según Veeam
+Obtener el nombre de la tarea según Veeam.
 Ejemplo de uso:
 ```
 module_begin
@@ -189,14 +191,56 @@ module_end
 ```
 
 #### Modulo RetainDays
-Obtener el nombre de la tarea según Veeam
+Obtener el numero de dias minimo que la tarea retiene datos.
 Ejemplo de uso:
 ```
 module_begin
-module_name Veeam Backup - Job Copia_Ejemplo_1 - JobName
+module_name Veeam Backup - Job Copia_Ejemplo_1 - RetainDays
 module_type generic_data
-module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 JobName d9c799c4-2d33-2641-a2db-116aa917078c
-module_description Veeam Backup - Job Copia_Ejemplo_1 - JobName de la tarea
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 RetainDays d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - RetainDays de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo TargetDir
+Obtener la ruta donde se guardan los backups en esta tarea.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - TargetDir
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 TargetDir d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - TargetDir de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo TargetFile
+Obtener el nombre de fichero SIN extension ni ruta usado por la tarea para guardar los backups.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - TargetFile
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 TargetFile d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - TargetFile de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo LastRunStart
+Obtener la fecha y hora de último comienzo de ejecución.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - LastRunStart
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 LastRunStart d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - LastRunStart de la tarea
 module_crontab 45 * * * *
 module_timeout 50
 module_end
