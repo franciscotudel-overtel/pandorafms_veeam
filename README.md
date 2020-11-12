@@ -144,7 +144,19 @@ module_end
 
 A partir de aqui detallo todos los posibles usos del script para obtener parametros concretos de una tarea
 
-### Modulo Jobs
+### Modulo JobName
+Obtener el nombre de la tarea según Veeam
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - JobName
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 JobName d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - JobName de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
 
 ## Uso_3
 Datastores
