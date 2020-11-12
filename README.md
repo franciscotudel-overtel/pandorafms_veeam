@@ -33,10 +33,10 @@
     <img src="images/logo.png" alt="Logo Overtel" >
   </a>
   <a href="https://pandorafms.com/">
-    <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" >
+    <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" width="30%" height="30%">
   </a>
   <a href="https://www.veeam.com/es/vm-backup-recovery-replication-software.html">
-    <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="50%" height="50%">
+    <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="30%" height="30%">
   </a>
 
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
