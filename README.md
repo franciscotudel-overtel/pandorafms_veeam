@@ -59,7 +59,7 @@
 * [Comenzando](#Comenzando)
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
-* [Ejemplos de Uso](#uso)
+* [Ejemplos de Uso](#Ejemplos-de-uso)
   * [Listado de Tareas](#listado-de-tareas)
   * [Listado de Parametros para una tarea especifica](#listado-de-parametros)
   * [Lisado de Datastores](#uso_3)
@@ -127,7 +127,7 @@ module_end
 
 
 <!-- USAGE EXAMPLES -->
-## Uso
+## Ejemplos de uso
 
 ### Listado de tareas
 Obtener listados de las tareas para su posterior uso en los modulos.
@@ -163,6 +163,16 @@ module_end
 
 A partir de aqui detallo todos los posibles usos del script para obtener parametros concretos de una tarea
 
+Simplemente para recordar, [aqui](https://pandorafms.com/docs/index.php?title=Pandora:Documentation_es:Configuracion_Agentes) en la sección 1.6.1.3 se detalla los tipos de modulos que pueden ser usados en un agente.
+    Numérico (generic_data): Datos numéricos sencillos, con coma flotante o enteros.
+    Incremental (generic_data_inc): Dato numérico igual a la diferencia entre el valor actual y el valor anterior dividida por el número de segundos transcurridos. Cuando esta diferencia es negativa, se reinicia el valor, esto significa que cuando la diferencia vuelva a ser positiva de nuevo se tomará el valor anterior siempre que el incremento vuelva a dar un valor positivo.
+    Absolute incremental (generic_data_inc_abs): Dato numérico igual a la diferencia entre el valor actual y el valor anterior, sin realizar la división entre el número de segundos transcurridos, para medir incremento total en lugar de incremento por segundo. Cuando esta diferencia es negativa, se reinicia el valor, esto significa que cuando la diferencia de nuevo vuelva a ser positiva, se empleará el último valor desde el que el actual incremento obtenido da positivo.
+    Alfanumérico (generic_data_string): Recoge cadenas de texto alfanuméricas.
+    Booleanos (generic_proc): Para valores que solo pueden ser correcto o afirmativo (1) o incorrecto o negativo (0). Útil para comprobar si un equipo está vivo, o un proceso o servicio está corriendo. Un valor negativo (0) trae preasignado el estado crítico, mientras que cualquier valor superior se considerará correcto.
+    Alfanumérico asíncrono (async_string): Para cadenas de texto de tipo asíncrono. La monitorización asíncrona depende de eventos o cambios que pueden ocurrir o no, por lo que este tipo de módulos nunca están en estado desconocido.
+    Booleano asíncrono (async_proc): Para valores booleanos de tipo asíncrono.
+    Numérico asíncrono (async_data): Para valores numéricos de tipo asíncrono.
+
 #### Modulo JobName
 Obtener el nombre de la tarea según Veeam
 Ejemplo de uso:
@@ -170,6 +180,20 @@ Ejemplo de uso:
 module_begin
 module_name Veeam Backup - Job Copia_Ejemplo_1 - JobName
 module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 JobName d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - JobName de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo RetainDays
+Obtener el nombre de la tarea según Veeam
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - JobName
+module_type generic_data
 module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 JobName d9c799c4-2d33-2641-a2db-116aa917078c
 module_description Veeam Backup - Job Copia_Ejemplo_1 - JobName de la tarea
 module_crontab 45 * * * *
