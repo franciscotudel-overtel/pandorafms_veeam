@@ -49,7 +49,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Tabla de contenido
 
-* [Sobre el proyecto](#Sobre el proyecto)
+* [Sobre el proyecto](#Sobre)
 * [Comenzando](#Comenzando)
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
@@ -62,7 +62,7 @@
 
 
 <!-- Sobre el proyecto -->
-## Sobre el proyecto
+## Sobre
 
 Script usado para obtener diferentes valores de las tareas de VEEAM BACKUP
 
@@ -117,7 +117,7 @@ module_timeout 50
 <!-- LICENCIA -->
 ## Licencia
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distribuido con the GNU General Public License v3.0. Ver `LICENSE` para mas informacion.
 
 
 
