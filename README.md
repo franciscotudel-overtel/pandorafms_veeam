@@ -55,7 +55,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Tabla de contenido
 
-* [Acerca de](#Acerca)
+* [Acerca de](#Acerca-de-nosotros)
 * [Comenzando](#Comenzando)
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
@@ -72,7 +72,9 @@
 
 
 <!-- Sobre el proyecto -->
-## Acerca de
+## Acerca de Nosotros
+*Overtel Technology Systems* está edicada al desarrollo y la implementación de Nuevas Tecnologías de la Información y Comunicaciones (TIC), aparece en el panorama nacional en mayo de 1996, abriendo su primer centro de trabajo en Cartagena (Región de Murcia) donde a día de hoy ubica su central de recursos y oficinas administrativas, siendo el epicentro de su constante expansión hacia otras provincias de España, principalmente el levante Español, Murcia, Almería, Alicante, Valencia…
+Operando con un equipo de calidad humana y técnica sobresaliente, damos servicio a toda la geografía nacional.
 
 *Pandora FMS* es un software de código abierto que sirve para monitorear (monitorizar) y medir todo tipo de elementos. Monitoriza sistemas, aplicaciones o dispositivos de red. Permite conocer el estado de cada elemento de un sistema a lo largo del tiempo ya que dispone de histórico de datos y eventos. Pandora FMS está orientado a grandes entornos, y permite gestionar con y sin agentes, varios miles de sistemas, por lo que se puede emplear en grandes clusters, centros de datos y redes de todo tipo.
 
