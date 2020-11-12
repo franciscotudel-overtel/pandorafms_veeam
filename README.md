@@ -264,8 +264,8 @@ Distribuido con the GNU General Public License v3.0. Ver `LICENSE` para mas info
 <!-- CONTACTO -->
 ## Contacto
 
-Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https://github.com/franciscotudel-overtel/pandorafms_veeam)
-LinkedIn: [linkedin-url]
+- Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https://github.com/franciscotudel-overtel/pandorafms_veeam)
+- LinkedIn: [LinkedIn][linkedin-url]
 
 <!-- AGRADECIMIENTOS -->
 ## Agradecimientos
