@@ -30,7 +30,7 @@
 <br />
 <p align="center">
   <a href="https://www.overtel.com">
-    <img src="images/logo.jpg" alt="Logo" >
+    <img src="images/logo.png" alt="Logo" >
   </a>
 
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
