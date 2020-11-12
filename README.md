@@ -61,7 +61,7 @@
   * [Instalacion](#Instalacion)
 * [Ejemplos de Uso](#uso)
   * [Listado de Tareas](#listado-de-tareas)
-  * [Parametros de una tarea especifica](#uso_2)
+  * [Listado de Parametros para una tarea especifica](#listado-de-parametros)
   * [Lisado de Datastores](#uso_3)
   * [Parametros de Datastores especifica](#uso_4)
 * [Contribuir](#contribuir)
@@ -91,7 +91,7 @@ En el servidor donde este instalado Veeam Backup, debemos tener instalado Powers
 
 ### Instalacion
 
-1. Clonar el repositorio en la carpeta de scripts de pandorafms
+1. Clonar el repositorio en la carpeta de scripts de pandorafms. Desde una linea de comandos (Tecla Win + R) ... cmd + Enter
 ```sh
 cd c:\
 cd pandorafms
@@ -127,10 +127,9 @@ module_end
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-# listado de tareas
+## listado de tareas
 Lista todas las tareas programadas en Veeam Backup de la maquina local
 
-#Modulo Jobs
 ```
 module_begin
 module_name Veeam Backup - Jobs
@@ -141,13 +140,16 @@ module_crontab 45 * * * *
 module_timeout 50
 module_end
 ```
-# Uso_2
-Datos obtenidos de una tarea concreta
+## Listado de parametros
 
-# Uso_3
+A partir de aqui detallo todos los posibles usos del script para obtener parametros concretos de una tarea
+
+### Modulo Jobs
+
+## Uso_3
 Datastores
 
-# Uso_4
+## Uso_4
 Datos especificos por Datastore
 
 <!-- LICENCIA -->
