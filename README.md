@@ -30,14 +30,16 @@
 <br />
 <p align="center">
   <a href="https://www.overtel.com">
-    <img src="images/logo.png" alt="Logo Overtel" >
+    <img src="images/logo.png" alt="Logo Overtel" width="30%" height="30%">
   </a>
+  <!--
   <a href="https://pandorafms.com/">
     <img src="images/pandorafms_logo.png" alt="Logo PandoraFMS" width="30%" height="30%">
   </a>
   <a href="https://www.veeam.com/es/vm-backup-recovery-replication-software.html">
     <img src="images/veeam_green_logo.svg" alt="Logo Veeam" width="30%" height="30%">
   </a>
+  -->
 
   <h3 align="center">Recogida de datos de Veeam Backup para su uso en PandoraFMS</h3>
 
