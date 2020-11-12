@@ -127,8 +127,10 @@ module_end
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-## listado de tareas
-Lista todas las tareas programadas en Veeam Backup de la maquina local
+### listado de tareas
+
+#### Todas
+Lista todas las tareas programadas en Veeam Backup de la maquina local, en formato CSV y sin importar si están o no habilitadas.
 
 ```
 module_begin
@@ -140,11 +142,25 @@ module_crontab 45 * * * *
 module_timeout 50
 module_end
 ```
-## Listado de parametros
+
+#### Solo enabled
+Lista las tareas con estado 'enabled' programadas en Veeam Backup de la maquina local, en formato CSV y sin importar si están o no habilitadas.
+
+```
+module_begin
+module_name Veeam Backup - Jobs
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListEnabledCSV
+module_description Lista de Tareas
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+### Listado de parametros
 
 A partir de aqui detallo todos los posibles usos del script para obtener parametros concretos de una tarea
 
-### Modulo JobName
+#### Modulo JobName
 Obtener el nombre de la tarea según Veeam
 Ejemplo de uso:
 ```
