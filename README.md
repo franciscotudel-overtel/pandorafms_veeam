@@ -49,7 +49,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Tabla de contenido
 
-* [Sobre el proyecto](#Sobre)
+* [Acerca de](#Acerca)
 * [Comenzando](#Comenzando)
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
@@ -62,9 +62,13 @@
 
 
 <!-- Sobre el proyecto -->
-## Sobre
+## Acerca
 
-Script usado para obtener diferentes valores de las tareas de VEEAM BACKUP
+*Pandora FMS* es un software de código abierto que sirve para monitorear (monitorizar) y medir todo tipo de elementos. Monitoriza sistemas, aplicaciones o dispositivos de red. Permite conocer el estado de cada elemento de un sistema a lo largo del tiempo ya que dispone de histórico de datos y eventos. Pandora FMS está orientado a grandes entornos, y permite gestionar con y sin agentes, varios miles de sistemas, por lo que se puede emplear en grandes clusters, centros de datos y redes de todo tipo.
+
+*Veeam Backup & Replication* es un software de copia de seguridad de datos y plan de recuperación ante desastres para máquinas virtuales de VMware vSphere y Microsoft Hyper V.
+
+Este repositorio pretende facilitar la tarea de recoger datos de las tareas de Veeam Backup asi como de los repositorios para luego poder usarlos en Pandora FMS y con ellos obtener graficos de uso así como poder enviar alarmas en caso de que fallen.
 
 
 <!-- COMENZANDO -->
@@ -72,7 +76,7 @@ Script usado para obtener diferentes valores de las tareas de VEEAM BACKUP
 
 ### Prerequisitos
 
-Debemos tener instalado Powershell y el modulo de administracion de VEEAM BACKUP
+En el servidor donde este instalado Veeam Backup, debemos tener instalado Powershell y el modulo de administracion de veeam backup. Este suele instalarse por defecto.
 
 
 ### Instalacion
@@ -81,9 +85,9 @@ Debemos tener instalado Powershell y el modulo de administracion de VEEAM BACKUP
 ```sh
 git clone https://github.com/franciscotudel-overtel/pandorafms_veeam
 ```
-2. Hacerse con la lista de tareas programadas en veeam con el siguiente comando
+2. Debemos hacernos con la lista de tareas programadas en veeam con el siguiente comando desde una consola de ms-dos. En el siguiente ejemplo se puede ver como obtener la lista de tareas y el identificador de cada una de ellas, necesario para las posteriores llamadas al script de las tareas.
 ```sh
-%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListCSV
+%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\zabbix\scripts_pandorafms\vb_job.ps1 ListCSV
 
 BCK_1;0;25fe1987-acc2-1c5a-be4a-00a629487561;
 BCK_2;0;d9c799c4-2d33-2641-a2db-116aa917078c;
