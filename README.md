@@ -36,11 +36,11 @@
   <h3 align="center">Modulos para pandorafms y Veeam Backup</h3>
 
   <p align="center">
-    Lista de modulos para leer el estado de tareas de Veeam Backup y ser usados en pandorafms
+    Modulos para leer el estado de tareas de Veeam Backup y ser usados como modulos en pandorafms
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/franciscotudel-overtel/pandorafms_veeam/issues">Reportar un Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/franciscotudel-overtel/pandorafms_veeam/issues">Requerir una nueva caracteristica</a>
   </p>
 </p>
 
@@ -50,16 +50,14 @@
 ## Tabla de contenido
 
 * [Sobre el proyecto](#Sobre el proyecto)
-  * [Built With](#built-with)
-* [COMENZANDO](#COMENZANDO)
+* [Comenzando](#Comenzando)
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
 * [Ejemplos de Uso](#uso)
-* [Contributing](#contributing)
-* [LICENCIA](#licencia)
+* [Contribuir](#contribuir)
+* [Licencia](#licencia)
 * [Contacto](#contacto)
-* [AGRADECIMIENTO](#agradecimiento)
-* [ir aqui](#aqui)
+* [Agradecimientos](#agradecimientos)
 
 
 
@@ -103,7 +101,7 @@ d9c799c4-2d33-2641-a2db-116aa917078c
 ## Uso
 
 #Modulo Jobs
-Lista todas las tareas de la maquina local
+Lista todas las tareas programadas en Veeam Backup de la maquina local
 
 ```
 module_begin
@@ -130,15 +128,15 @@ Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https
 
 
 
-<!-- AGRADECIMIENTO -->
-## Agradecimiento
+<!-- AGRADECIMIENTOS -->
+## Agradecimientos
 * [Jean-Jacques Martrès](https://github.com/jjmartres)
 
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/francisco-tudel-escalona-44076069/pandorafms_veeam.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/franciscotudel-overtel/pandorafms_veeam.svg?style=flat-square
 [contributors-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/francisco-tudel-escalona-44076069/pandorafms_veeam.svg?style=flat-square
 [forks-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/network/members
@@ -149,5 +147,5 @@ Project Link: [https://github.com/franciscotudel-overtel/pandorafms_veeam](https
 [license-shield]: https://img.shields.io/github/license/francisco-tudel-escalona-44076069/pandorafms_veeam.svg?style=flat-square
 [license-url]: https://github.com/franciscotudel-overtel/pandorafms_veeam/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/francisco-tudel-escalona-44076069/
+[linkedin-url]: https://linkedin.com/in/francisco-tudel-escalona-44076069
 
