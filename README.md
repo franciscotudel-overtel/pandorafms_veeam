@@ -84,6 +84,8 @@ Operando con un equipo de calidad humana y técnica sobresaliente, damos servici
 
 Este repositorio pretende facilitar la tarea de recoger datos de las tareas de Veeam Backup asi como de los repositorios para luego poder usarlos en Pandora FMS y con ellos obtener graficos de uso así como poder enviar alarmas en caso de que fallen.
 
+Todas las llamadas a la API están documentadas perfectamente por parte del fabricante [aqui](https://helpcenter.veeam.com/docs/backup/powershell/getting_started.html?ver=100)
+
 
 <!-- COMENZANDO -->
 
@@ -178,6 +180,27 @@ Simplemente para recordar, [aqui](https://pandorafms.com/docs/index.php?title=Pa
 
 ¡OJO! Recordar cambiar el UUID de la tarea por uno de los obtenidos en las listas del apartado anterior.
 
+#### Modulo Result
+Obtener el resultado de ejecución de la tarea.
+Veeam define los siguientes [resultados](https://helpcenter.veeam.com/docs/backup/powershell/enums.html?ver=100#vbrsessionresult).
+
+- None: The result is N/A.
+- Success: The session finished successfully.
+- Warning: The session finished with warnings.
+- Failed: The session failed.
+
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - Result
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 Result d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - Result de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
 #### Modulo JobName
 Obtener el nombre de la tarea según Veeam.
 Ejemplo de uso:
@@ -243,6 +266,90 @@ module_name Veeam Backup - Job Copia_Ejemplo_1 - LastRunStart
 module_type generic_data_string
 module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 LastRunStart d9c799c4-2d33-2641-a2db-116aa917078c
 module_description Veeam Backup - Job Copia_Ejemplo_1 - LastRunStart de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo LastRunStop
+Obtener la fecha y hora de última finalización de ejecución.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - LastRunStop
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 LastRunStop d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - LastRunStop de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo LastRunMinutes
+Obtener tiempo transcurrido en minutos desde la última finalización de ejecución.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - LastRunMinutes
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 LastRunMinutes d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - LastRunMinutes de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo NextRun
+Obtener la fecha y hora de la próxima ejecución.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - NextRun
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 NextRun d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - NextRun de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo JobType
+Obtener tipo de tarea, Backup, Replica, Copy file ...
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - JobType
+module_type generic_data_string
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 JobType d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - JobType de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo VmCount
+Obtener numero de máquinas virtuales implicadas en esta tarea.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - VmCount
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 VmCount d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - VmCount de la tarea
+module_crontab 45 * * * *
+module_timeout 50
+module_end
+```
+
+#### Modulo IsEnabled
+Preguntar si la tarea está activa o no, si no lo está no se ejecutará.
+Ejemplo de uso:
+```
+module_begin
+module_name Veeam Backup - Job Copia_Ejemplo_1 - IsEnabled
+module_type generic_data
+module_exec %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -Noprofile -ExecutionPolicy Bypass -command C:\pandorafms\scripts\vb_job.ps1 IsEnabled d9c799c4-2d33-2641-a2db-116aa917078c
+module_description Veeam Backup - Job Copia_Ejemplo_1 - IsEnabled de la tarea
 module_crontab 45 * * * *
 module_timeout 50
 module_end
