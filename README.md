@@ -60,7 +60,7 @@
   * [Prerequisitos](#Prerequisitos)
   * [Instalacion](#Instalacion)
 * [Ejemplos de Uso](#uso)
-  * [Listado de Tareas](#uso_1)
+  * [Listado de Tareas](#listado-de-tareas)
   * [Parametros de una tarea especifica](#uso_2)
   * [Lisado de Datastores](#uso_3)
   * [Parametros de Datastores especifica](#uso_4)
@@ -127,7 +127,7 @@ module_end
 <!-- USAGE EXAMPLES -->
 ## Uso
 
-# Uso_1
+# listado de tareas
 Lista todas las tareas programadas en Veeam Backup de la maquina local
 
 #Modulo Jobs
